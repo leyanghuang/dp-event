@@ -1,0 +1,56 @@
+constants:
+  read_batch_size: 5000
+  write_batch_size: 5000
+jobs:
+  raw_seatgeek:
+    job_name: raw_seatgeek
+    years_to_fetch: 2
+    api_size_limit: 100
+    api_retry_limit: 3
+    api_retry_delay: 5
+    base_api_url: https://api.seatgeek.com/2/
+  raw_ticketmaster:
+    job_name: raw_ticketmaster
+    api_size_limit: 200
+    api_retry_limit: 3
+    api_retry_delay: 5
+    base_api_url: https://app.ticketmaster.com/discovery/v2/events.json
+  stage_artist:
+    job_name: stage_artist
+  stage_venue:
+    job_name: stage_venue
+  stage_event:
+    job_name: stage_event
+  public_artist:
+    job_name: public_artist
+    match_threshold: 85
+  public_venue:
+    job_name: public_venue
+    name_threshold: 85
+    address_threshold: 85
+    distance_threshold: 300
+  public_event:
+    job_name: public_event
+
+database_tables:
+  log:
+    log_table: dp_event
+  raw:
+    seatgeek_event: seatgeek_event
+    seatgeek_venue: seatgeek_venue
+    seatgeek_performer: seatgeek_performer
+    ticketmaster_event: ticketmaster_event
+    ticketmaster_venue: ticketmaster_venue
+    ticketmaster_attraction: ticketmaster_attraction
+  stage:
+    event: event
+    artist: artist
+    venue: venue
+  public:
+    event: event
+    event_artist: event_artist
+    artist: artist
+    venue: venue
+    venue_dma: venue_dma
+    dma: dma
+    market: market

@@ -1,0 +1,9 @@
+pandas==2.2.3
+psycopg[binary]==3.2.6
+PyYAML==6.0.2
+rapidfuzz==3.12.2
+Requests==2.32.3
+rtree==1.4.0
+Shapely==2.0.7
+spotipy==2.25.1
+ratelimit==2.2.1
